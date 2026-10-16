@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://marrowmade.vercel.app/sitemap.xml
