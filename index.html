@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171815">
+  <meta name="description" content="Morrowmade is an independent digital studio building distinctive websites and practical digital systems for ambitious small businesses.">
+  <meta property="og:title" content="Morrowmade — Good work for what's next">
+  <meta property="og:description" content="Independent digital studio. Thoughtful websites, useful automation, and a little more nerve.">
+  <meta property="og:type" content="website">
+  <title>Morrowmade® — Good work for what's next</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#171815;--paper:#f5f2ea;--paper2:#e9e5da;--lime:#d7ff57;--blue:#4649ec;--muted:#85867d;--line:rgba(23,24,21,.18);--serif:"Instrument Serif",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--mono:"DM Mono",monospace;--nav-h:78px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:95px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+    ::selection{background:var(--lime);color:var(--ink)}
+    .scroll-progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;background:var(--lime);z-index:1000}
+    .grain{position:fixed;inset:0;pointer-events:none;z-index:900;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+    .wrap{width:min(1360px,calc(100% - 72px));margin-inline:auto}
+    .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-size:10px}
+    .topbar{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative;z-index:100}
+    .brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.07em;font-size:25px}
+    .brand-dot{display:block;width:12px;height:12px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 4px rgba(215,255,87,.13)}
+    .brand sup{font-family:var(--mono);font-size:9px;letter-spacing:0;align-self:flex-start;margin-top:4px}
+    .nav{display:flex;gap:34px;align-items:center}
+    .nav a{font-size:12px;font-weight:600;transition:opacity .2s}
+    .nav a:not(.nav-cta):hover{opacity:.55}
+    .nav-cta{border:1px solid var(--ink);border-radius:999px;padding:12px 18px;display:inline-flex;align-items:center;gap:16px}
+    .nav-cta span{font-size:17px;line-height:10px;transition:transform .25s}
+    .nav-cta:hover{background:var(--ink);color:var(--paper)}
+    .nav-cta:hover span{transform:translate(3px,-3px)}
+    .menu-toggle{display:none;background:transparent;border:0;font-size:12px;padding:12px;cursor:pointer}
+    .hero{padding:86px 0 68px;position:relative}
+    .hero-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .availability{display:flex;align-items:center;gap:9px}
+    .availability i{display:inline-block;background:#83a733;width:7px;height:7px;border-radius:50%;box-shadow:0 0 0 4px rgba(131,167,51,.15)}
+    .hero h1{font-size:clamp(76px,12.45vw,178px);line-height:.79;letter-spacing:-.095em;font-weight:500;margin:0;max-width:1200px}
+    .hero h1 .line{display:block}
+    .hero h1 .last-line{display:flex;align-items:center;gap:clamp(10px,2vw,25px)}
+    .hero h1 em{font-family:var(--serif);font-weight:400;letter-spacing:-.065em}
+    .orbit-word{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);width:clamp(60px,8vw,114px);height:clamp(60px,8vw,114px);border-radius:50%;font-size:clamp(24px,4vw,54px);letter-spacing:-.08em;transform:rotate(-12deg);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+    .hero h1:hover .orbit-word{transform:rotate(12deg) scale(1.04)}
+    .hero-bottom{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-top:62px}
+    .hero-note{max-width:365px;font-size:15px;line-height:1.65;margin:0}
+    .hero-note strong{font-weight:600}
+    .hero-actions{display:flex;align-items:center;justify-content:flex-end;gap:24px}
+    .button{display:inline-flex;align-items:center;gap:22px;background:var(--lime);border:1px solid var(--ink);border-radius:999px;padding:16px 22px;font-size:12px;font-weight:700;transition:transform .25s,box-shadow .25s,background .25s}
+    .button span{font-size:18px;font-weight:400;line-height:.7;transition:transform .25s}
+    .button:hover{transform:translateY(-3px);box-shadow:4px 5px 0 var(--ink)}
+    .button:hover span{transform:translate(3px,-3px)}
+    .text-link{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;border-bottom:1px solid var(--line);padding:8px 0}
+    .text-link span{font-size:16px}
+    .hero-art{margin-top:65px;display:grid;grid-template-columns:1.2fr .8fr;min-height:210px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .hero-art-left{padding:25px 28px 22px 0;display:flex;flex-direction:column;justify-content:space-between}
+    .hero-art-left .big-italic{font-family:var(--serif);font-size:clamp(30px,4vw,52px);letter-spacing:-.045em;line-height:.98;max-width:650px}
+    .hero-art-left .big-italic em{color:var(--blue);font-weight:400}
+    .hero-art-right{background:var(--lime);padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .asterisk{font-size:66px;line-height:.8;position:absolute;right:28px;top:20px;animation:slowspin 24s linear infinite}
+    .hero-art-right p{font-size:14px;line-height:1.45;max-width:240px;position:relative;z-index:1;margin:0}
+    .hero-art-right .mono{position:relative;z-index:1}
+    @keyframes slowspin{to{transform:rotate(360deg)}}
+    .marquee{background:var(--ink);color:var(--paper);overflow:hidden;padding:17px 0}
+    .marquee-track{display:flex;width:max-content;animation:marquee 35s linear infinite}
+    .marquee-item{display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap;font-family:var(--serif);font-style:italic;font-size:25px}
+    .marquee-item b{font-family:var(--sans);font-size:12px;color:var(--lime);font-weight:400}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+    .section{padding:128px 0}
+    .section-kicker{display:flex;align-items:center;gap:12px;margin:0 0 22px}
+    .section-kicker:before{content:"";width:28px;height:1px;background:currentColor}
+    .section-heading{font-size:clamp(44px,7vw,94px);line-height:.92;letter-spacing:-.075em;font-weight:500;margin:0;max-width:900px}
+    .section-heading em{font-family:var(--serif);font-weight:400}
+    .work-intro{display:flex;justify-content:space-between;align-items:end;gap:48px;margin-bottom:52px}
+    .work-intro .right-copy{max-width:290px;line-height:1.6;font-size:13px;margin:0 0 5px}
+    .work-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:24px}
+    .project{min-width:0;position:relative}
+    .project:nth-child(2){margin-top:115px}
+    .project:nth-child(3){grid-column:1/-1;width:82%;margin-top:36px}
+    .project-visual{display:block;position:relative;overflow:hidden;aspect-ratio:1.23;border-radius:2px;background:#e4e0d5;border:1px solid rgba(23,24,21,.12);transform:translateZ(0)}
+    .project:nth-child(3) .project-visual{aspect-ratio:1.8}
+    .visual-top{position:absolute;left:0;right:0;top:0;height:32px;background:rgba(245,242,234,.92);display:flex;align-items:center;gap:5px;padding:0 12px;z-index:5;border-bottom:1px solid rgba(23,24,21,.1)}
+    .visual-top i{width:6px;height:6px;border-radius:50%;background:#b4b0a6}
+    .visual-top .url{font-family:var(--mono);font-size:8px;opacity:.55;margin-left:8px}
+    .visit-mark{margin-left:auto;font-size:12px}
+    .preview{position:absolute;inset:32px 0 0;overflow:hidden;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+    .project-visual:hover .preview{transform:scale(1.025)}
+    /* Preview one: warm, leafy home-care brand */
+    .happy-preview{background:#f7f5ed;color:#253e32;padding:5% 7%;font-family:var(--sans)}
+    .happy-nav{display:flex;align-items:center;justify-content:space-between;font-size:clamp(6px,.8vw,10px);font-weight:700}
+    .happy-logo{font-family:var(--serif);font-size:clamp(15px,2.5vw,29px);letter-spacing:-.06em}
+    .happy-logo span{color:#809776}
+    .happy-links{display:flex;gap:12px}
+    .happy-pill{background:#dfebd6;padding:7px 10px;border-radius:99px;font-size:8px!important}
+    .happy-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:8%;height:80%;align-items:center;padding-top:5%}
+    .happy-copy h3{font-family:var(--serif);font-size:clamp(25px,4.4vw,54px);font-weight:400;line-height:.89;letter-spacing:-.05em;margin:0 0 10px}
+    .happy-copy p{font-size:clamp(6px,.8vw,10px);line-height:1.5;max-width:180px;margin:0 0 14px}
+    .mini-button{display:inline-block;background:#294a3a;color:white;border-radius:99px;padding:8px 12px;font-size:clamp(5px,.7vw,8px)}
+    .happy-image{height:95%;position:relative;border-radius:44% 44% 4px 4px;overflow:hidden;background:#b4bea9}
+    .happy-image img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .image-note{position:absolute;right:7%;bottom:7%;background:#f6f3e8;padding:9px;border-radius:3px;font-size:7px;box-shadow:0 6px 22px #20362930}
+    /* Preview two: cobalt and papaya cleaning studio */
+    .joana-preview{background:#f0ebff;color:#22246a;padding:5% 7%;font-family:var(--sans)}
+    .joana-nav{display:flex;justify-content:space-between;align-items:center;font-size:clamp(6px,.75vw,10px);font-weight:700}
+    .joana-logo{font-size:clamp(13px,2vw,24px);letter-spacing:-.07em}
+    .joana-logo b{color:#f16f5e}
+    .joana-links{display:flex;gap:12px;align-items:center}
+    .joana-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:5%;height:82%;align-items:center;padding-top:4%}
+    .joana-eyebrow{font-family:var(--mono);font-size:clamp(5px,.62vw,8px);text-transform:uppercase;letter-spacing:.1em;color:#5759d9}
+    .joana-copy h3{font-size:clamp(24px,4vw,50px);line-height:.88;letter-spacing:-.08em;font-weight:700;margin:10px 0}
+    .joana-copy h3 em{font-family:var(--serif);font-weight:400}
+    .joana-copy p{font-size:clamp(6px,.74vw,9px);line-height:1.45;max-width:180px}
+    .joana-visual{background:#f16f5e;height:100%;min-height:110px;border-radius:45% 45% 3px 3px;overflow:hidden;position:relative}
+    .joana-visual img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:.88}
+    .joana-sticker{position:absolute;left:-9px;bottom:9%;background:#efff5a;border:1px solid #1c1d53;border-radius:50%;width:clamp(38px,5vw,65px);height:clamp(38px,5vw,65px);display:grid;place-items:center;text-align:center;font-size:clamp(6px,.7vw,9px);font-weight:700;transform:rotate(-12deg)}
+    /* Preview three: dark, warm-toned service business */
+    .yusuf-preview{background:#151c23;color:#f8f0dc;padding:3.5% 5%;font-family:var(--sans)}
+    .yusuf-nav{display:flex;align-items:center;justify-content:space-between;font-size:clamp(6px,.72vw,9px)}
+    .yusuf-logo{font-family:var(--serif);font-size:clamp(16px,2.3vw,29px);letter-spacing:-.05em}
+    .yusuf-logo span{color:#d4a96b}
+    .yusuf-main{display:grid;grid-template-columns:1.12fr .88fr;gap:5%;height:83%;align-items:center}
+    .yusuf-copy small{font-family:var(--mono);font-size:clamp(5px,.6vw,8px);color:#d4a96b;letter-spacing:.13em}
+    .yusuf-copy h3{font-family:var(--serif);font-size:clamp(30px,5.1vw,62px);font-weight:400;line-height:.84;letter-spacing:-.06em;margin:10px 0}
+    .yusuf-copy p{font-size:clamp(6px,.72vw,9px);line-height:1.5;max-width:250px;color:#d8d3c9}
+    .yusuf-btn{display:inline-block;background:#d4a96b;color:#191d22;padding:8px 12px;font-weight:700;font-size:clamp(5px,.7vw,8px);margin-top:3px}
+    .yusuf-img{height:95%;position:relative;overflow:hidden;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%,0 12%)}
+    .yusuf-img img{width:100%;height:100%;object-fit:cover;opacity:.75}
+    .yusuf-img:after{content:"";position:absolute;inset:0;background:linear-gradient(130deg,transparent 40%,#d4a96b55)}
+    .project-meta{display:flex;justify-content:space-between;gap:20px;align-items:start;padding:22px 0 0}
+    .project-title{font-size:clamp(26px,3vw,38px);line-height:1;letter-spacing:-.065em;margin:0 0 9px;font-weight:500}
+    .project-tags{display:flex;gap:7px;flex-wrap:wrap}
+    .tag{font-family:var(--mono);font-size:9px;letter-spacing:.045em;border:1px solid var(--line);padding:7px 9px;border-radius:999px}
+    .project-link{width:42px;height:42px;flex:0 0 42px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-size:20px;transition:background .25s,color .25s,transform .25s}
+    .project-link:hover{background:var(--ink);color:var(--paper);transform:rotate(45deg)}
+    .project-num{color:var(--muted);margin-bottom:12px}
+    .about{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+    .about:before{content:"M";position:absolute;font-family:var(--serif);font-size:clamp(300px,57vw,820px);line-height:.7;left:-.04em;top:.31em;color:rgba(245,242,234,.035);pointer-events:none}
+    .about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:9%;position:relative;z-index:1}
+    .about-left{display:flex;flex-direction:column;justify-content:space-between;min-height:400px}
+    .about-mark{width:116px;height:116px;border:1px solid rgba(245,242,234,.35);border-radius:50%;display:grid;place-items:center;transform:rotate(-12deg)}
+    .about-mark svg{width:55px;height:55px;animation:slowspin 32s linear infinite}
+    .about .section-heading{font-size:clamp(48px,7vw,96px);max-width:760px}
+    .about .section-heading em{color:var(--lime)}
+    .about-copy{font-size:clamp(16px,1.8vw,21px);line-height:1.6;color:#c7c8bf;max-width:650px;margin:30px 0}
+    .about-copy strong{color:var(--paper);font-weight:500}
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(245,242,234,.22)}
+    .principle .mono{color:var(--lime);margin-bottom:15px}
+    .principle h3{font-size:16px;font-weight:500;letter-spacing:-.03em;margin:0 0 9px}
+    .principle p{font-size:12px;line-height:1.6;color:#a8aaa1;margin:0;max-width:230px}
+    .services{background:var(--paper2)}
+    .services-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:55px}
+    .services-head p{max-width:270px;font-size:13px;line-height:1.65;margin:0}
+    .service-list{border-top:1px solid var(--line)}
+    .service-row{display:grid;grid-template-columns:70px 1fr 1fr 34px;align-items:center;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);transition:padding .25s}
+    .service-row:hover{padding-left:12px;padding-right:12px}
+    .service-no{font-family:var(--mono);font-size:10px;color:var(--muted)}
+    .service-row h3{font-size:clamp(24px,3.5vw,42px);font-weight:500;letter-spacing:-.07em;margin:0}
+    .service-row p{font-size:12px;line-height:1.6;color:#61625a;max-width:350px;margin:0}
+    .service-arrow{font-size:22px;justify-self:end;transition:transform .25s}
+    .service-row:hover .service-arrow{transform:translate(3px,-3px)}
+    .process{padding:128px 0 142px}
+    .process-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:60px;gap:32px}
+    .process-head .small-note{max-width:250px;font-size:13px;line-height:1.65}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+    .step{padding:24px 22px 0 0;min-height:210px;position:relative}
+    .step+.step{border-left:1px solid var(--line);padding-left:22px}
+    .step-no{display:inline-flex;width:31px;height:31px;border:1px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;margin-bottom:34px}
+    .step h3{font-size:22px;letter-spacing:-.055em;font-weight:500;margin:0 0 12px}
+    .step p{font-size:12px;color:#64655d;line-height:1.65;max-width:230px;margin:0}
+    .contact{background:var(--lime);padding:106px 0 0;overflow:hidden;position:relative}
+    .contact-top{display:flex;justify-content:space-between;gap:40px;align-items:start;margin-bottom:42px}
+    .contact .section-heading{font-size:clamp(58px,11vw,145px);max-width:1000px;line-height:.8}
+    .contact .section-heading em{color:var(--blue)}
+    .contact-stamp{border:1px solid var(--ink);height:102px;width:102px;flex:0 0 102px;border-radius:50%;display:grid;place-items:center;text-align:center;transform:rotate(9deg);font-family:var(--mono);font-size:10px;line-height:1.6}
+    .contact-middle{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:36px 0 50px;border-bottom:1px solid rgba(23,24,21,.35)}
+    .contact-middle p{font-size:15px;line-height:1.5;max-width:360px;margin:0}
+    .contact-button{background:var(--ink);color:var(--paper);border-color:var(--ink);min-width:218px;justify-content:space-between}
+    .contact-button:hover{box-shadow:4px 5px 0 var(--blue)}
+    .contact-bottom{padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:18px}
+    .contact-bottom a{font-size:12px;font-weight:600;border-bottom:1px solid rgba(23,24,21,.35);padding-bottom:4px}
+    footer{background:var(--lime);padding:0 0 26px}
+    .footer-line{display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(23,24,21,.35);padding-top:24px;gap:30px}
+    .footer-wordmark{font-size:clamp(60px,12vw,160px);letter-spacing:-.1em;line-height:.8;font-weight:700}
+    .footer-wordmark span{color:var(--blue)}
+    .footer-info{text-align:right;font-family:var(--mono);font-size:9px;line-height:1.8;letter-spacing:.08em;text-transform:uppercase}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+    .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
+    .fade-in{animation:fade-in .9s both}
+    @keyframes fade-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .status-toast{position:fixed;bottom:20px;right:20px;z-index:200;background:var(--ink);color:var(--paper);padding:13px 17px;font-size:12px;box-shadow:4px 4px 0 var(--lime);opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s;pointer-events:none}
+    .status-toast.show{opacity:1;transform:translateY(0)}
+    @media(min-width:1500px){.hero h1{font-size:184px}}
+    @media(max-width:900px){.wrap{width:calc(100% - 44px)}.hero{padding-top:70px}.hero h1{font-size:clamp(70px,13.2vw,118px)}.hero-bottom{margin-top:45px}.hero-art{min-height:185px}.section{padding:100px 0}.work-grid{gap:18px}.project:nth-child(2){margin-top:75px}.project:nth-child(3){width:90%}.about-grid{gap:6%}.about-left{min-height:340px}.service-row{grid-template-columns:42px 1fr 1fr 24px;gap:15px}.process-grid{grid-template-columns:repeat(2,1fr)}.step:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}.step:nth-child(4){border-top:1px solid var(--line)}}
+    @media(max-width:640px){:root{--nav-h:68px}.wrap{width:calc(100% - 36px)}.topbar{height:var(--nav-h)}.brand{font-size:23px}.menu-toggle{display:block;z-index:102}.nav{display:none;position:fixed;inset:0;background:var(--lime);z-index:101;flex-direction:column;align-items:flex-start;justify-content:center;padding:36px;gap:28px}.nav.open{display:flex}.nav a:not(.nav-cta){font-size:35px;letter-spacing:-.06em}.nav-cta{margin-top:10px;padding:15px 20px}.hero{padding:58px 0 42px}.hero-meta{align-items:start;gap:20px}.hero-meta .mono{font-size:8px}.hero h1{font-size:clamp(61px,15.3vw,99px);line-height:.83;letter-spacing:-.09em}.hero h1 .last-line{gap:9px}.orbit-word{width:52px;height:52px;font-size:24px}.hero-bottom{grid-template-columns:1fr;gap:26px;margin-top:30px}.hero-note{font-size:14px;max-width:330px}.hero-actions{justify-content:flex-start;flex-wrap:wrap;gap:18px}.button{padding:14px 17px}.hero-art{grid-template-columns:1fr;margin-top:44px}.hero-art-left{min-height:150px;padding:20px 0}.hero-art-left .big-italic{font-size:35px;max-width:380px}.hero-art-right{min-height:135px;padding:20px}.asterisk{font-size:58px;right:22px;top:18px}.hero-art-right p{font-size:13px;max-width:225px}.marquee{padding:14px 0}.marquee-item{font-size:21px;gap:18px;padding-right:18px}.section{padding:78px 0}.section-heading{font-size:clamp(43px,12vw,70px)}.work-intro{display:block;margin-bottom:28px}.work-intro .right-copy{margin-top:20px;max-width:330px}.work-grid{grid-template-columns:1fr;gap:38px}.project:nth-child(2){margin-top:0}.project:nth-child(3){grid-column:auto;width:100%;margin-top:0}.project-visual{aspect-ratio:1.02}.project:nth-child(3) .project-visual{aspect-ratio:1.15}.happy-copy h3{font-size:clamp(36px,10vw,58px)}.happy-copy p{font-size:9px}.happy-logo{font-size:24px}.happy-nav{font-size:9px}.happy-links{gap:7px}.happy-pill{font-size:7px!important;padding:6px 8px}.joana-copy h3{font-size:clamp(35px,9vw,53px)}.joana-copy p{font-size:9px}.joana-logo{font-size:21px}.yusuf-copy h3{font-size:clamp(41px,10vw,60px)}.yusuf-copy p{font-size:9px}.yusuf-logo{font-size:22px}.project-title{font-size:29px}.project-meta{padding-top:17px}.tag{font-size:8px;padding:6px 8px}.about-grid{grid-template-columns:1fr;gap:34px}.about-left{min-height:0;flex-direction:row;align-items:center}.about-mark{width:72px;height:72px}.about-mark svg{width:39px;height:39px}.about .section-heading{font-size:clamp(46px,12vw,73px)}.about-copy{font-size:16px;margin:23px 0}.principles{grid-template-columns:1fr;gap:26px;margin-top:37px}.principle .mono{margin-bottom:10px}.principle h3{font-size:18px}.principle p{font-size:13px}.services-head{display:block;margin-bottom:35px}.services-head p{margin-top:20px}.service-row{grid-template-columns:28px 1fr 20px;gap:11px;padding:22px 0}.service-row h3{font-size:25px}.service-row p{grid-column:2;grid-row:2;font-size:12px;max-width:360px}.service-arrow{grid-column:3;grid-row:1}.service-no{grid-row:1}.process{padding:80px 0 92px}.process-head{display:block;margin-bottom:36px}.process-head .small-note{margin-top:20px}.process-grid{grid-template-columns:1fr 1fr}.step{min-height:195px;padding:19px 14px 0 0}.step+.step{padding-left:14px}.step:nth-child(3){padding-left:0}.step-no{margin-bottom:23px}.step h3{font-size:20px}.step p{font-size:12px}.contact{padding-top:72px}.contact-top{margin-bottom:28px;gap:10px}.contact .section-heading{font-size:clamp(57px,14vw,90px);line-height:.84}.contact-stamp{width:66px;height:66px;flex-basis:66px;font-size:7px}.contact-middle{display:block;padding:26px 0 32px}.contact-middle p{font-size:14px;margin-bottom:24px}.contact-button{width:100%;max-width:300px}.contact-bottom{align-items:flex-start;flex-wrap:wrap}.contact-bottom .mono{width:100%}.footer-line{display:block;padding-top:21px}.footer-wordmark{font-size:clamp(65px,17.8vw,112px);margin-bottom:20px}.footer-info{text-align:left}.status-toast{left:18px;right:18px;bottom:15px;text-align:center}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}.marquee-track{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header class="wrap topbar">
+    <a class="brand" href="#top" aria-label="Morrowmade home"><span class="brand-dot" aria-hidden="true"></span>morrowmade<sup>®</sup></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">MENU +</button>
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <a href="#work">Selected work</a><a href="#studio">The studio</a><a href="#services">What we do</a><a class="nav-cta" href="#contact">Start a project <span>↗</span></a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-meta mono fade-in"><span>Independent digital studio / 2026</span><span class="availability"><i aria-hidden="true"></i> Small studio. Big intent.</span></div>
+      <h1 class="fade-in"><span class="line">GOOD WORK</span><span class="line last-line">FOR WHAT'S <em>next</em><span class="orbit-word" aria-hidden="true">↗</span></span></h1>
+      <div class="hero-bottom fade-in">
+        <p class="hero-note"><strong>We make small businesses impossible to overlook.</strong> Distinctive websites and useful digital systems, made with care and built to move business forward.</p>
+        <div class="hero-actions"><a class="button" href="#work">Explore selected work <span>↓</span></a><a class="text-link" href="#contact">Have a good one in mind? <span>↗</span></a></div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="hero-art-left"><span class="mono">Good taste, working hard.</span><div class="big-italic">Less template. More <em>character.</em><br>Made to be remembered.</div></div>
+        <div class="hero-art-right"><span class="mono">M® / A note on our approach</span><div class="asterisk" aria-hidden="true">✳</div><p>Clear thinking. Strong visuals. The right details in all the right places.</p></div>
+      </div>
+    </section>
+    <div class="marquee" aria-label="What we make"><div class="marquee-track" aria-hidden="true">
+      <div class="marquee-item">Websites that work <b>✳</b> Brand experiences <b>✳</b> Local visibility <b>✳</b> Useful automation <b>✳</b> Websites that work <b>✳</b> Brand experiences <b>✳</b> Local visibility <b>✳</b> Useful automation <b>✳</b></div>
+      <div class="marquee-item">Websites that work <b>✳</b> Brand experiences <b>✳</b> Local visibility <b>✳</b> Useful automation <b>✳</b> Websites that work <b>✳</b> Brand experiences <b>✳</b> Local visibility <b>✳</b> Useful automation <b>✳</b></div>
+    </div></div>
+    <section class="section wrap" id="work">
+      <div class="work-intro reveal"><div><p class="section-kicker mono">01 / A few things we've made</p><h2 class="section-heading">Real businesses.<br><em>Fresh perspectives.</em></h2></div><p class="right-copy">A selection of website concepts and builds for service businesses. Each one gets its own point of view—not another copy-paste look.</p></div>
+      <div class="work-grid">
+        <article class="project reveal">
+          <a class="project-visual" href="https://happycleaningusa.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Happy Cleaning website">
+            <div class="visual-top"><i></i><i></i><i></i><span class="url">happycleaningusa.com</span><span class="visit-mark">↗</span></div>
+            <div class="preview happy-preview">
+              <div class="happy-nav"><div class="happy-logo">happy<span>.</span>cleaning</div><div class="happy-links"><span>Services</span><span>Our story</span><span class="happy-pill">Get a quote ↗</span></div></div>
+              <div class="happy-layout"><div class="happy-copy"><h3>A cleaner home.<br>A lighter day.</h3><p>Thoughtful cleaning for the spaces where life happens.</p><span class="mini-button">Let's make it shine ↗</span></div><div class="happy-image"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=720&q=80" alt="" loading="lazy"><div class="image-note">A little more calm, daily.</div></div></div>
+            </div>
+          </a>
+          <div class="project-meta"><div><div class="project-num mono">01 / Home services</div><h3 class="project-title">Happy Cleaning</h3><div class="project-tags"><span class="tag">Website design</span><span class="tag">Lead capture</span><span class="tag">Local business</span></div></div><a class="project-link" href="https://happycleaningusa.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Happy Cleaning">↗</a></div>
+        </article>
+        <article class="project reveal delay-1">
+          <a class="project-visual" href="https://joanacleaning.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Joana's Cleaning website">
+            <div class="visual-top"><i></i><i></i><i></i><span class="url">joanacleaning.com</span><span class="visit-mark">↗</span></div>
+            <div class="preview joana-preview">
+              <div class="joana-nav"><div class="joana-logo">JOANA<b>®</b></div><div class="joana-links"><span>Our care</span><span>Services</span><span>↗</span></div></div>
+              <div class="joana-layout"><div class="joana-copy"><span class="joana-eyebrow">A little care goes a long way</span><h3>Come home<br>to <em>better.</em></h3><p>Reliable cleaning. Thoughtful details. Your kind of fresh.</p><span class="mini-button" style="background:#3038d8;color:white">Find your clean ↗</span></div><div class="joana-visual"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=720&q=80" alt="" loading="lazy"><div class="joana-sticker">CLEAN<br>FEELS<br>GOOD ✳</div></div></div>
+            </div>
+          </a>
+          <div class="project-meta"><div><div class="project-num mono">02 / Residential & commercial</div><h3 class="project-title">Joana's Cleaning</h3><div class="project-tags"><span class="tag">Art direction</span><span class="tag">Responsive web</span><span class="tag">Enquiry flow</span></div></div><a class="project-link" href="https://joanacleaning.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Joana's Cleaning">↗</a></div>
+        </article>
+        <article class="project reveal">
+          <a class="project-visual" href="https://yosef-cleaning-solutions.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Yosef Cleaning Solutions website">
+            <div class="visual-top"><i></i><i></i><i></i><span class="url">yosef-cleaning-solutions.vercel.app</span><span class="visit-mark">↗</span></div>
+            <div class="preview yusuf-preview">
+              <div class="yusuf-nav"><div class="yusuf-logo">YOSEF<span>.</span></div><span>Cleaning, done with care</span><span>Let's talk ↗</span></div>
+              <div class="yusuf-main"><div class="yusuf-copy"><small>THE GOOD CLEAN STANDARD</small><h3>Clean<br>you can<br><em>feel.</em></h3><p>Detail-first cleaning for the places you work, live, and love.</p><span class="yusuf-btn">Book a clean ↗</span></div><div class="yusuf-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=950&q=80" alt="" loading="lazy"></div></div>
+            </div>
+          </a>
+          <div class="project-meta"><div><div class="project-num mono">03 / Cleaning services</div><h3 class="project-title">Yosef Cleaning Solutions</h3><div class="project-tags"><span class="tag">Website build</span><span class="tag">Service storytelling</span><span class="tag">Conversion UX</span></div></div><a class="project-link" href="https://yosef-cleaning-solutions.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Yosef Cleaning Solutions">↗</a></div>
+        </article>
+      </div>
+    </section>
+    <section class="section about" id="studio">
+      <div class="wrap about-grid">
+        <div class="about-left reveal"><p class="section-kicker mono">02 / The studio</p><div class="about-mark" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M50 4 59 33 84 16 68 41 97 50 68 59 84 84 59 68 50 97 41 68 16 84 32 59 3 50 32 41 16 16 41 32Z" stroke="#D7FF57" stroke-width="1.7"/><circle cx="50" cy="50" r="13" stroke="#D7FF57" stroke-width="1.7"/></svg></div></div>
+        <div class="reveal delay-1"><h2 class="section-heading">Good work should feel <em>like you.</em></h2><p class="about-copy">Morrowmade is an independent digital studio for businesses with something good to offer. We bring <strong>thoughtful design and practical technology</strong> together to make your next step look—and work—better.</p><p class="about-copy">No bloated process. No mystery jargon. Just considered work, clear communication, and details that pull their weight.</p>
+          <div class="principles"><div class="principle"><div class="mono">01 / Clarity</div><h3>Make it make sense.</h3><p>Good design guides people. It doesn't make them guess.</p></div><div class="principle"><div class="mono">02 / Character</div><h3>Look like nobody else.</h3><p>Distinctive visuals built around your business, not a trend.</p></div><div class="principle"><div class="mono">03 / Usefulness</div><h3>Make every click count.</h3><p>Smart paths from first impression to real conversation.</p></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="services-head reveal"><div><p class="section-kicker mono">03 / What we bring to the table</p><h2 class="section-heading">Small details.<br><em>Real difference.</em></h2></div><p>Start with the thing you need now. Add the next layer when you're ready. Good digital work should grow with you.</p></div>
+        <div class="service-list">
+          <a class="service-row reveal" href="#contact"><span class="service-no">01</span><h3>Website design & build</h3><p>Fast, responsive websites with a distinct point of view and a clear path to enquire, book, or buy.</p><span class="service-arrow">↗</span></a>
+          <a class="service-row reveal" href="#contact"><span class="service-no">02</span><h3>Local search foundations</h3><p>On-page SEO, service-area structure, and useful content to help nearby customers understand what you do.</p><span class="service-arrow">↗</span></a>
+          <a class="service-row reveal" href="#contact"><span class="service-no">03</span><h3>Lead capture & workflows</h3><p>Less friction between someone needing your service and your business hearing from them.</p><span class="service-arrow">↗</span></a>
+          <a class="service-row reveal" href="#contact"><span class="service-no">04</span><h3>AI & useful automation</h3><p>Practical automations for enquiries and repetitive tasks—only where they genuinely help.</p><span class="service-arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="process wrap" id="approach">
+      <div class="process-head reveal"><div><p class="section-kicker mono">04 / No unnecessary drama</p><h2 class="section-heading">A good process.<br><em>Good things follow.</em></h2></div><p class="small-note">Simple, collaborative, and built around the actual job—not meetings about meetings.</p></div>
+      <div class="process-grid">
+        <div class="step reveal"><span class="step-no">01</span><h3>Listen first.</h3><p>Your goals, your customers, what's working, and what isn't. We start with the useful questions.</p></div>
+        <div class="step reveal delay-1"><span class="step-no">02</span><h3>Find the angle.</h3><p>Set the direction, shape the message, and make the visual decisions that give the work its character.</p></div>
+        <div class="step reveal delay-2"><span class="step-no">03</span><h3>Make it real.</h3><p>Build, refine, and check the details across screen sizes, links, and the key customer journey.</p></div>
+        <div class="step reveal delay-3"><span class="step-no">04</span><h3>Send it out.</h3><p>Launch with a clear next step. Keep improving as your business—and your ambitions—grow.</p></div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-top reveal"><div><p class="section-kicker mono">05 / A good place to start</p><h2 class="section-heading">Let's make<br>something <em>matter.</em></h2></div><div class="contact-stamp">YOUR NEXT<br>CHAPTER<br>STARTS HERE ↘</div></div>
+        <div class="contact-middle reveal"><p>Have a website to rethink, a new business to launch, or a process that could work harder? Tell us what you're building.</p><a class="button contact-button" href="mailto:hello@morrowmade.com?subject=Let's%20make%20something%20good">Tell us about it <span>↗</span></a></div>
+        <div class="contact-bottom"><span class="mono">Independent by design. Collaborative by nature.</span><a href="#top">Back to the top ↑</a></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><div class="footer-line"><div class="footer-wordmark">morrowmade<span>.</span></div><div class="footer-info">Digital studio / Independent minds<br>Good work for what's next<br>© <span id="year">2026</span> Morrowmade®</div></div></div></footer>
+  <div class="status-toast" role="status" aria-live="polite"></div>
+  <script>
+    (function(){
+      "use strict";
+      var progress=document.querySelector(".scroll-progress");
+      var nav=document.querySelector(".nav");
+      var toggle=document.querySelector(".menu-toggle");
+      var toast=document.querySelector(".status-toast");
+      var year=document.getElementById("year");
+      if(year) year.textContent=String(new Date().getFullYear());
+      var ticking=false;
+      function onScroll(){
+        if(ticking)return;
+        ticking=true;
+        window.requestAnimationFrame(function(){
+          var max=document.documentElement.scrollHeight-window.innerHeight;
+          var pct=max>0?(window.scrollY/max)*100:0;
+          if(progress)progress.style.width=Math.min(100,Math.max(0,pct))+"%";
+          ticking=false;
+        });
+      }
+      window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+      if(toggle&&nav){
+        toggle.addEventListener("click",function(){
+          var open=nav.classList.toggle("open");
+          document.body.classList.toggle("menu-open",open);
+          toggle.setAttribute("aria-expanded",String(open));
+          toggle.textContent=open?"CLOSE ×":"MENU +";
+          toggle.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+        });
+        nav.querySelectorAll("a").forEach(function(link){link.addEventListener("click",function(){
+          nav.classList.remove("open");document.body.classList.remove("menu-open");
+          toggle.setAttribute("aria-expanded","false");toggle.textContent="MENU +";toggle.setAttribute("aria-label","Open navigation");
+        });});
+      }
+      var reveals=document.querySelectorAll(".reveal");
+      if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        var observer=new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}});
+        },{threshold:.12,rootMargin:"0px 0px -30px 0px"});
+        reveals.forEach(function(el){observer.observe(el);});
+      }else{reveals.forEach(function(el){el.classList.add("is-visible");});}
+      document.querySelectorAll('a[href^="#"]').forEach(function(link){
+        link.addEventListener("click",function(event){
+          var target=document.querySelector(link.getAttribute("href"));
+          if(target){event.preventDefault();target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});}
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
