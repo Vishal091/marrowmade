@@ -23,7 +23,7 @@ Then visit `http://localhost:8000`.
 
 ## Required before public outreach
 
-1. **Confirm the enquiry inbox.** The form currently uses `hello@marrowmade.com` as a placeholder recipient. Replace it in the script inside `index.html` with an email address that exists and is monitored.
+1. **Confirm the enquiry inbox.** The project form is configured to prepare an email draft addressed to `marrowmade0@gmail.com`. Verify the inbox is accessible and test the complete enquiry flow before sending prospects to the site.
 2. **Verify the brand/domain spelling.** This repository and Vercel URL use `marrowmade`. Keep the wordmark, email, project domain, social handles and future custom domain consistent. Check availability before buying a custom domain or trademarking the name.
 3. **Review the portfolio destinations.** The site links to the public destinations listed in `index.html`. Confirm each is the intended showcase link. Joana's Cleaning links to the current public business site; if a separate redesign preview is available, replace the link and corresponding screenshot source with that verified preview.
 4. **Review screenshot-provider dependence.** Website preview images are fetched from Thum.io at runtime so they reflect public live sites. Its free service may be rate-limited and is not under this repository's control. For a more reliable production portfolio, capture approved screenshots and commit optimized local WebP files to this repo.
