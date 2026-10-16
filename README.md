@@ -25,7 +25,7 @@ Then visit `http://localhost:8000`.
 
 1. **Confirm the enquiry inbox.** The project form is configured to prepare an email draft addressed to `marrowmade0@gmail.com`. Verify the inbox is accessible and test the complete enquiry flow before sending prospects to the site.
 2. **Verify the brand/domain spelling.** This repository and Vercel URL use `marrowmade`. Keep the wordmark, email, project domain, social handles and future custom domain consistent. Check availability before buying a custom domain or trademarking the name.
-3. **Review the portfolio destinations.** The showcase cards now point to the Vercel demos: `https://happy-cleaning.vercel.app/`, `https://joanna-cleaning.vercel.app/`, and `https://yosef-cleaning-solutions.vercel.app/`. Confirm the first two aliases load the latest builds in your Vercel account. The screenshot thumbnails are generated from those same demo URLs.
+3. **Review the portfolio destinations.** The showcase cards now point to the Vercel demos: `https://happy-cleaning-eta.vercel.app/`, `https://joanna-cleaning.vercel.app/`, and `https://yosef-cleaning-solutions.vercel.app/`. Confirm the first two aliases load the latest builds in your Vercel account. The screenshot thumbnails are generated from those same demo URLs.
 4. **Review screenshot-provider dependence.** Website preview images are fetched from Thum.io at runtime so they reflect public live sites. Its free service may be rate-limited and is not under this repository's control. For a more reliable production portfolio, capture approved screenshots and commit optimized local WebP files to this repo.
 5. Test the deployed site on desktop and mobile, test the form with the confirmed recipient, and verify the final deployment URL.
 
